@@ -1,0 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+scores= [[31, 12, 19, 53],
+[67, 48, 95, 83],
+[59, 67, 13, 59],
+[62, 29, 99, 88],
+[87, 91, 69, 76]]
+scores=np.array(scores)
+print("1.Find the maximum score")
+max=0
+for i in scores[:,2]:
+    if i>max:
+        max=i
+print("The maximum score --->",max)
+print("2. Find the minimum score of YUVRAJ")
+min=scores[2,0] 
+for i in scores[2,:]:
+    if i<min:
+        min=i
+print("minimum score of YUVRAJ --->",min)
+print("""3.Add an extra column with the sum of all 4 T20 Matches""")
+print(" ")
+batsman_total=[]
+for i in range(0,5):
+    add=0
+    for j in range(0,4):
+        add+=scores[i,j]
+    batsman_total.append(add)
+batsman_total=np.array(batsman_total).reshape(5,1)
+scores=np.concatenate((scores,batsman_total),axis=1)
+print("updated array",scores)
